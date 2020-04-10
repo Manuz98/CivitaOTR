@@ -1,7 +1,0 @@
-- Navbar nera o bianca con:Logo a sinistra,Home,Storia,chi siamo,registrati,accedi tutto a destra
-- Una volta loggato si aggiunge un tasto in piu` che apre un dropdown con: Il carnevale,
-  Il duomo,forte san gallo,i nostri cibi
-- Prendiamo spunto dal template di w3school chiamato Startup Template
-- Nelle pagine di contenuti extra slideshow iniziale con sotto una descrizione dell'oggetto 
-  in questione
-- Marco(Carnevale,i nostri cibi,registrati,chi siamo) - Manuel(Duomo,forte san gallo,storia,home)  
