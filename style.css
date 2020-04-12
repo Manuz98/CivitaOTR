@@ -32,3 +32,23 @@ footer{
   padding:3% 3% 3% 3%;
   color:white;
 }
+
+footer a:link{
+  color:white;
+  text-decoration: none;
+}      
+footer a:visited {
+  color:white;
+  text-decoration: none;
+}
+footer a:hover {
+  color:red;  
+  text-decoration: none;
+}
+footer a:active {
+  color:white;  
+  text-decoration: none;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
