@@ -1,0 +1,67 @@
+
+ground-image: url(img/civita.jpg);
+    display: table;
+    background-size:cover;
+    background-position:center center;
+    background-repeat: no-repeat;
+    position: relative;
+    height:100%;
+    width:100%;
+    
+}
+.miotesto{
+    position:absolute;
+    top:50%;
+    left:0%;
+    transform:translate(0%,-50%);
+    -ms-transform:translate(-0%,-50%);
+ 
+}
+.miotesto h1{
+    color:white;
+}
+footer{
+  width: 100%;
+  background-color: #343a40!important;
+  padding:3% 3% 3% 3%;
+  color:white;
+}
+
+footer a:link{
+  color:white;
+  text-decoration: none;
+}      
+footer a:visited {
+  color:white;
+  text-decoration: none;
+}
+footer a:hover {
+  color:red;  
+  text-decoration: none;
+}
+footer a:active {
+  color:white;  
+  text-decoration: none;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+body{
+    padding-top: 40px;
+
+}
+.navbar-nav,
+.navbar-brand{
+    height: 40px;
+    line-height: 30px;
+}
+
+.carousel-item{
+    min-height: 600px;
+    background-size: cover;
+    background-position: center center;
+}
+.footer{
+    min-height: 300px; background: #333;
+}
+
