@@ -17,12 +17,11 @@ body,html{
 }
 .miotesto{
     position:absolute;
-    top:50%;
+    top:70%;
     left:0%;
     transform:translate(0%,-50%);
     -ms-transform:translate(-0%,-50%);
- 
-}
+  }
 .miotesto h1{
     color:white;
 }
