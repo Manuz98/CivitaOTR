@@ -1,0 +1,4 @@
+git add nome_file
+git commit -m "nome_commit"
+git push -u origin master
+git pull
