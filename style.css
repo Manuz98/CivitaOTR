@@ -16,8 +16,19 @@ body,html{
     width:100%;
 }
 
-.imgsfondo1{
+.imglogin{
   background-image: url(img/civitaneve.jpg);
+  display: table;
+  background-size:cover;
+  background-position:center center;
+  background-repeat: no-repeat;
+  position: relative;
+  height:100%;
+  width:100%;
+}
+
+.imgregistrazione{
+  background-image: url(img/registrazione.jpg);
   display: table;
   background-size:cover;
   background-position:center center;
@@ -90,7 +101,7 @@ footer a:active {
   box-shadow: 1vh 1vh 1vh gray;
 }
 
-/*Inizio css testo responsive*/
+/*Inizio css per testo responsive*/
 @media screen and (min-width: 768px) {
   .row p {
     font-size:1.50rem;
@@ -113,15 +124,7 @@ footer a:active {
 }
 /*Fine css per testo responsive*/
 
-/*Inizio css pagina accedi*/
-.mioform{
-  background-color:white;
-  opacity:0.5;
-  position: absolute;
-  top:40%;
-  left:40%;
-}
-
+/*Inizio css pagina accedi,registrazione*/
 .accedibox{
   width: 320px;
   height: 420px;
@@ -135,21 +138,42 @@ footer a:active {
   padding: 60px 30px;
   border-radius: 20px;
 }
-.accedibox h1{
+.registrabox{
+  width: 500px;
+  height: 470px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  top:56%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border-radius: 20px;
+}
+.accedibox h1,.registrabox h1{
   margin: 0;
   padding: 0 0 20px;
   text-align: center;
 }
-.accedibox p{
+.accedibox p,.registrabox p{
   margin: 0;
   padding: 0;
   font-weight: bold;
 }
-.accedibox input{
+.accedibox input,.registrabox input{
   width: 100%;
-  margin-bottom: 20px;
 }
-.accedibox input[type="text"], input[type="password"]
+.accedibox button{
+  width: 100%;
+  margin-bottom: 20px; 
+}
+.registrabox button{
+  width: 100%;
+  margin-top:20px;
+  margin-bottom: 20px;  
+}
+.accedibox input[type="text"], input[type="password"],.registrabox input[type="text"], input[type="password"]
 {
   border: none;
   border-bottom: 1px solid #fff;
@@ -159,12 +183,12 @@ footer a:active {
   color: #fff;
   font-size: 16px;
 }
-.accedibox a{
+.accedibox a,.registrabox a{
     text-decoration: none;
     font-size: 14px;
     color: #fff;
 }
-.accedibox a:hover
+.accedibox a:hover,.registrabox a:hover
 {
     color: red;
 }
