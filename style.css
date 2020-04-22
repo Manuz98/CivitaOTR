@@ -16,28 +16,6 @@ body,html{
     width:100%;
 }
 
-.imglogin{
-  background-image: url(img/civitaneve.jpg);
-  display: table;
-  background-size:cover;
-  background-position:center center;
-  background-repeat: no-repeat;
-  position: relative;
-  height:100%;
-  width:100%;
-}
-
-.imgregistrazione{
-  background-image: url(img/registrazione.jpg);
-  display: table;
-  background-size:cover;
-  background-position:center center;
-  background-repeat: no-repeat;
-  position: relative;
-  height:100%;
-  width:100%;
-}
-
 .miotesto{
     position:absolute;
     top:70%;
@@ -71,28 +49,11 @@ footer a:active {
   color:white;  
   text-decoration: none;
 }
-.miotesto a:link{
-  color:black;
-  text-decoration: none;
-}      
-.miotesto a:visited {
-  color:black;
-  text-decoration: none;
-}
-.miotesto a:hover {
-  color:black;  
-  text-decoration: none;
-}
-.miotesto a:active {
-  color:black;  
-  text-decoration: none;
-}
 .carousel-inner > .carousel-item {
   min-height: 100vh;
   background-size: cover;
   background-position: center center;
 }
-
 /*Fine css pagina index*/
 
 /*Css per immagini in pagine cont. extra*/
@@ -125,6 +86,27 @@ footer a:active {
 /*Fine css per testo responsive*/
 
 /*Inizio css pagina accedi,registrazione*/
+.imglogin{
+  background-image: url(img/civitaneve.jpg);
+  display: table;
+  background-size:cover;
+  background-position:center center;
+  background-repeat: no-repeat;
+  position: relative;
+  height:100%;
+  width:100%;
+}
+
+.imgregistrazione{
+  background-image: url(img/registrazione.jpg);
+  display: table;
+  background-size:cover;
+  background-position:center center;
+  background-repeat: no-repeat;
+  position: relative;
+  height:100%;
+  width:100%;
+}
 .accedibox{
   width: 320px;
   height: 420px;
@@ -139,16 +121,11 @@ footer a:active {
   border-radius: 20px;
 }
 .registrabox{
-  width: 500px;
-  height: 470px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  top:56%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%,-50%);
   box-sizing: border-box;
-  padding: 30px 30px;
+  margin-top:88px;
+  padding: 20px 30px;
   border-radius: 20px;
 }
 .accedibox h1,.registrabox h1{
@@ -159,6 +136,7 @@ footer a:active {
 .accedibox p,.registrabox p{
   margin: 0;
   padding: 0;
+  font-size:1rem;
   font-weight: bold;
 }
 .accedibox input,.registrabox input{
@@ -170,7 +148,6 @@ footer a:active {
 }
 .registrabox button{
   width: 100%;
-  margin-top:20px;
   margin-bottom: 20px;  
 }
 .accedibox input[type="text"], input[type="password"],.registrabox input[type="text"], input[type="password"]
