@@ -124,9 +124,12 @@ footer a:active {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   box-sizing: border-box;
-  margin-top:88px;
+  margin-top:85px;
   padding: 20px 30px;
   border-radius: 20px;
+}
+#message{
+  margin-top:10px;
 }
 .accedibox h1,.registrabox h1{
   margin: 0;
@@ -150,7 +153,7 @@ footer a:active {
   width: 100%;
   margin-bottom: 20px;  
 }
-.accedibox input[type="text"], input[type="password"],.registrabox input[type="text"], input[type="password"]
+.accedibox input[type="text"], input[type="password"],.registrabox input[type="text"], input[type="password"],input[type="email"]
 {
   border: none;
   border-bottom: 1px solid #fff;

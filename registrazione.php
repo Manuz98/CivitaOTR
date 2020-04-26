@@ -1,9 +1,33 @@
+<?php
+     $dbconn=pg_connect("host=localhost port=5432 dbname=Utenti user=postgres password=1234")
+      or die("Impossibile connettersi: " . pg_last_error());
+      $a='';
+      if($_SERVER['REQUEST_METHOD']=='POST'){
+          $email=$_POST['email'];
+          $q1="select * from utenti where email=$1";
+          $result=pg_query_params($dbconn,$q1,array($email));
+          if($line=pg_fetch_array($result,null,PGSQL_ASSOC)){
+            $a='<h5 style="color:red;">Sei un utente già registrato</h5>';
+          }
+          else{
+           $nome=$_POST['nome'];
+           $cognome=$_POST['cognome'];
+           $username=$_POST['username'];
+           $password=md5($_POST['rpassword']);
+           $q2="insert into utenti values($1,$2,$3,$4,$5)";
+           $data=pg_query_params($dbconn,$q2,array($email,$nome,$cognome,$username,$password));
+           if($data){
+            $a='<h5>La registrazione è stata completata.<br />Ora puoi accedere.</h5>';
+          }
+        }     
+      }     
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registrazione</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -45,19 +69,19 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="login.html">Accedi</a>
-        <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="registrazione.html">Registrati</a>
+        <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="registrazione.php">Registrati</a>
       </ul>
     </div>
   </nav>
   <!--Fine navbar-->
 
-  <!--Sfondo con form-->
+   <!--Sfondo con form-->
   <div class="imgregistrazione">
     <div class="container-fluid">
       <div class="row">
       <div class="col-sm-6 offset-sm-3 registrabox">  
       <h1>Registrazione</h1>
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" novalidate action="registrazione.php" method="POST">
         <div class="form-row"> 
           <div class="col-sm-6">
             <div class="form-group">
@@ -82,7 +106,7 @@
           <div class="col-sm-6">
             <div class="form-group">  
               <p>Email</p>
-              <input type="text" name="email" placeholder="Email" required>
+              <input type="email" name="email" placeholder="Email" required>
               <div class="invalid-feedback">
                 Inserire un'email valida.
               </div>
@@ -120,13 +144,15 @@
         </div>
         <div class="form-row"> 
           <div class="col-sm-6"> 
-            <button type="submit" class="btn btn btn-outline-light">Submit</button>
+            <button type="submit" name="confermaButton" class="btn btn btn-outline-light">Conferma</button>
           </div>
           <div class="col-sm-6"> 
             <button type="reset" class="btn btn btn-outline-light">Reset</button>
           </div>           
-        </div>  
-        <a href="#">Password dimenticata?</a>     
+        </div>   
+        <div class="form-row justify-content-center text-center" id="message">
+          <?php echo $a ?>
+        </div>   
       </form>  
       </div>
     </div>
