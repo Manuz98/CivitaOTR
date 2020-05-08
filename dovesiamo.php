@@ -1,3 +1,6 @@
+<?php 
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,16 +24,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html#timeline-1">Storia</a>
+        <a class="nav-link" href="index.php#timeline-1">Storia</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="dovesiamo.html">Dove siamo</a>
+        <a class="nav-link" href="dovesiamo.php">Dove siamo</a>
       </li>         
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle <?php if(!isset($_SESSION['username'])){echo 'disabled';}?> >" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Contenuti Extra
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,8 +48,15 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="login.html">Accedi</a>
-      <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="registrazione.php">Registrati</a>
+      <?php 
+      if(isset($_SESSION['username'])){
+        echo '<a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="logout.php">Logout</a>';
+      }
+      else{
+        echo '<a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="login.php">Accedi</a>
+              <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="registrazione.php">Registrati</a>';
+      }
+    ?>
     </ul>
   </div>
 </nav>
@@ -76,7 +86,7 @@
           data-content="<pre>Da <b>ROMA:</b> <br> Saxa Rubra verso Civita Castellana<br>Da <b>VITERBO:</b><br> Riello verso Civita Castellana</pre>"><section class="s4"><a href="#" class="iconbtn fas fa-bus"> </a></section>
           </button>
         </div>
-        <div class="col-sm-6 text-center" >
+        <div class="col-sm-6 text-center">
           <div class="map-responsive">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11803.747419207955!2d12.38198530183433!3d42.301212779749214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f3dbbf2857d87%3A0xe385e69309f16611!2s01033%20Civita%20Castellana%20VT!5e0!3m2!1sit!2sit!4v1587305846567!5m2!1sit!2sit" width="600" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
           </div>
@@ -95,7 +105,6 @@
               <pp><b>Nome:</b> Manuel</pp><br>
               <pp><b>Cognome:</b> Grossi</pp><br>
               <pp><b>Data di nascita:</b> 03/08/1998</pp><br>
-              <pp><b>Residenza:</b> Fabrica di Roma</pp><br>
               <pp><b>Studente di Ingegneria Informatica</b></pp><br>
               <pp> @Università di Roma la Sapienza</pp>
             </div>
@@ -112,7 +121,6 @@
               <pp><b>Nome:</b> Marco</pp><br>
               <pp><b>Cognome:</b> Cardinali</pp><br>
               <pp><b>Data di nascita:</b> 23/04/1998</pp><br>
-              <pp><b>Residenza:</b> Civita Castellana</pp><br>
               <pp><b>Studente di Ingegneria Informatica</b></pp><br>
               <pp>@Università di Roma la Sapienza</pp>
             </div>
@@ -126,14 +134,24 @@
   <!--Inizio Footer-->
   <footer class="container-fluid text-center">
     <div class="row">
-      <div class="col-sm-6">
-       <h3>Come raggiungerci?</h3>
-       <h4>Le info nella pagina "<a href="#">Dove siamo</a>"</h4> 
-      </div>
-      <div class="col-sm-6">
-        <h3>Vuoi vedere contenuti extra?</h3>
-        <h4>Registrati e accedi!</h4>
-      </div>
+    <?php 
+        if(isset($_SESSION['username'])){
+          echo '<div class="col-sm-6 offset-sm-3">
+                 <h3>Come raggiungerci?</h3>
+                 <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
+                </div>';
+        }
+        else{
+          echo '<div class="col-sm-6">
+                 <h3>Come raggiungerci?</h3>
+                 <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
+                </div>
+                <div class="col-sm-6">
+                 <h3>Vuoi vedere contenuti extra?</h3>
+                 <h4>Registrati e accedi!</h4>
+                </div>';
+        }
+      ?>
     </div>
   </footer>
   <!--Fine footer-->

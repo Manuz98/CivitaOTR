@@ -1,3 +1,6 @@
+<?php 
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +32,10 @@
           <a class="nav-link" href="#timeline-1">Storia</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="dovesiamo.html">Dove siamo</a>
+          <a class="nav-link" href="dovesiamo.php">Dove siamo</a>
         </li>         
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle <?php if(!isset($_SESSION['username'])){echo 'disabled';}?> " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Contenuti Extra
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,8 +50,16 @@
         </li>       
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="login.html">Accedi</a>
-        <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="registrazione.php">Registrati</a>
+        <?php 
+          if(isset($_SESSION['username'])){
+            echo '<h5 style="color:white; margin:auto; margin-right:10px;">Benvenuto/a '.$_SESSION['username'].'</h5>';
+            echo '<a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="logout.php">Logout</a>';
+          }
+          else{
+            echo '<a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="login.php">Accedi</a>
+                  <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="registrazione.php">Registrati</a>';
+          }
+        ?>
       </ul>
     </div>
   </nav>
@@ -161,14 +172,24 @@
   <!--Inizio Footer-->
   <footer class="container-fluid text-center">
     <div class="row">
-      <div class="col-sm-6">
-       <h3>Come raggiungerci?</h3>
-       <h4>Le info nella pagina "<a href="#">Dove siamo</a>"</h4> 
-      </div>
-      <div class="col-sm-6">
-        <h3>Vuoi vedere contenuti extra?</h3>
-        <h4>Registrati e accedi!</h4>
-      </div>
+      <?php 
+        if(isset($_SESSION['username'])){
+          echo '<div class="col-sm-6 offset-sm-3">
+                 <h3>Come raggiungerci?</h3>
+                 <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
+                </div>';
+        }
+        else{
+          echo '<div class="col-sm-6">
+                 <h3>Come raggiungerci?</h3>
+                 <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
+                </div>
+                <div class="col-sm-6">
+                 <h3>Vuoi vedere contenuti extra?</h3>
+                 <h4>Registrati e accedi!</h4>
+                </div>';
+        }
+      ?>
     </div>
   </footer>
   <!--Fine footer-->
@@ -177,67 +198,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   
   <!--Script per la timeline-->
-  <script>
-    
-    (function($) {
-    $.fn.timeline = function() {
-    var selectors = {
-      id: $(this),
-      item: $(this).find(".timeline-item"),
-      activeClass: "timeline-item--active",
-      img: ".timeline__img"
-    };
-    selectors.item.eq(0).addClass(selectors.activeClass);
-    selectors.id.css(
-      "background-image",
-      "url(" +
-        selectors.item
-          .first()
-          .find(selectors.img)
-          .attr("src") +
-        ")"
-    );
-    var itemLength = selectors.item.length;
-    $(window).scroll(function() {
-      var max, min;
-      var pos = $(this).scrollTop();
-      selectors.item.each(function(i) {
-        min = $(this).offset().top;
-        max = $(this).height() + $(this).offset().top;
-        var that = $(this);
-        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
-          selectors.item.removeClass(selectors.activeClass);
-          selectors.id.css(
-            "background-image",
-            "url(" +
-              selectors.item
-                .last()
-                .find(selectors.img)
-                .attr("src") +
-              ")"
-          );
-          selectors.item.last().addClass(selectors.activeClass);
-        } else if (pos <= max - 40 && pos >= min) {
-          selectors.id.css(
-            "background-image",
-            "url(" +
-              $(this)
-                .find(selectors.img)
-                .attr("src") +
-              ")"
-          );
-          selectors.item.removeClass(selectors.activeClass);
-          $(this).addClass(selectors.activeClass);
-        }
-      });
-    });
-  };
-})(jQuery);
-
-$("#timeline-1").timeline();
-
-  </script>
-  <!--Fine script per la timeline-->
+  <script src="js/timeline.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
