@@ -10,10 +10,14 @@
           $q2="select * from utenti where username=$1";
           $result1=pg_query_params($dbconn,$q2,array($username));
           if($line=pg_fetch_array($result,null,PGSQL_ASSOC)){
-            $a='<h5 style="color:red;">Sei un utente già registrato<br><a href="login.php">Clicca qui per accedere</a></h5>';
+            $a='<div class="form-row justify-content-center text-center alert alert-danger">
+                <h5>Sei un utente già registrato<br><a href="login.php" class="alert-link">Clicca qui per accedere</a></h5>
+                </div>';
           }
           else if($line=pg_fetch_array($result1,null,PGSQL_ASSOC)){
-            $a='<h5 style="color:red;">Username già presente</h5>';
+            $a='<div class="form-row justify-content-center text-center alert alert-danger">
+                <h5>Username già presente</h5>
+                </div>';
           }
           else{
            $nome=$_POST['nome'];
@@ -23,7 +27,9 @@
            $q2="insert into utenti values($1,$2,$3,$4,$5)";
            $data=pg_query_params($dbconn,$q2,array($email,$nome,$cognome,$username,$password));
            if($data){
-            $a='<h5>La registrazione è stata completata<br><a href="login.php">Clicca qui per accedere</a></h5>';
+            $a='<div class="form-row justify-content-center text-center alert alert-success">
+                <h5>La registrazione è stata completata<br><a href="login.php" class="alert-link">Clicca qui per accedere</a></h5>
+                </div>';
           }
         }     
       }       
@@ -34,6 +40,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrazione</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
@@ -63,13 +70,13 @@
             Contenuti Extra
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="carnevale.html">Il Carnevale </a>
+            <a class="dropdown-item" href="carnevale.php">Il Carnevale </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="duomo.html">Il Duomo</a>
+            <a class="dropdown-item" href="duomo.php">Il Duomo</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="fortesangallo.html">Il Forte Sangallo</a>
+            <a class="dropdown-item" href="fortesangallo.php">Il Forte Sangallo</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="ponte.html">Il Ponte Clementino</a>
+            <a class="dropdown-item" href="ponte.php">Il Ponte Clementino</a>
           </div>
         </li>       
       </ul>
@@ -92,7 +99,7 @@
           <div class="col-sm-6">
             <div class="form-group">
               <p>Nome</p>
-              <input type="text" id="nome" class="dacont" name="nome"  pattern="^[a-z]{2,15}$" required>
+              <input type="text" id="nome" class="dacont" name="nome"  pattern="^[a-zA-Z]{2,15}$" required>
               <div class="invalid-feedback">
                 Inserire un nome valido.
               </div>
@@ -101,7 +108,7 @@
           <div class="col-sm-6">
             <div class="form-group">  
               <p>Cognome</p>
-              <input type="text" id="cognome" class="dacont"  name="cognome" pattern="^[a-z]{2,15}$" required>
+              <input type="text" id="cognome" class="dacont"  name="cognome" pattern="^[a-zA-Z]{2,15}$" required>
               <div class="invalid-feedback">
                 Inserire cognome valido.
               </div>
@@ -132,7 +139,7 @@
           <div class="col-sm-6">
             <div class="form-group">  
               <p>Password</p>
-              <input type="password" class="dacont" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+              <input type="password" id="password" class="dacont" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
               <div class="invalid-feedback">
                 Inserire una password con almeno una lettera maiuscola e una minuscola, un numero e contenente min. 8 caratteri.
               </div>
@@ -141,7 +148,7 @@
           <div class="col-sm-6">
             <div class="form-group">  
               <p>Conferma password</p>
-              <input type="password" id="cpassword" class="dacont" name="cpassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+              <input type="password" id="cpassword" class="dacont" name="cpassword" required>
               <div id="cpasswordinv" class="invalid-feedback">
                 Le password devono combaciare.
               </div>
@@ -156,10 +163,8 @@
             <button type="reset" id="mioreset" class="btn btn btn-outline-light">Reset</button>
           </div>           
         </div>   
-        <div class="form-row justify-content-center text-center" id="message">
-          <?php echo $a ?>
-        </div>   
-      </form>  
+         <?php echo $a ?>
+        </form>  
       </div>
     </div>
     </div>
@@ -169,13 +174,16 @@
   <!--Inizio Footer-->
   <footer class="container-fluid text-center">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
        <h3>Come raggiungerci?</h3>
-       <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
+       <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <h3>Vuoi vedere contenuti extra?</h3>
         <h4>Registrati e accedi!</h4>
+      </div>
+      <div class="col-sm-4">
+       <img class="icon" src="img/logofooter.png">
       </div>
     </div>
   </footer>

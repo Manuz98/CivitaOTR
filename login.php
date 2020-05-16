@@ -8,14 +8,18 @@
         $q1="select * from utenti where username=$1";
         $result=pg_query_params($dbconn,$q1,array($username));
         if(!( $line=pg_fetch_array($result,null,PGSQL_ASSOC))){
-          $a='<h5 style="color:red;">Non sei un utente registrato<br><a href="registrazione.php">Clicca qui per registrarti</a></h5>';
+          $a='<div class="form-row justify-content-center text-center alert alert-danger" style="margin-top:10px;">
+              <h5>Non sei un utente registrato<br><a href="registrazione.php" class="alert-link">Clicca qui per registrarti</a></h5>
+              </div>';
         }
         else{
         $password=md5($_POST['password']);
         $q2="select * from utenti where username=$1 and password=$2";
         $result=pg_query_params($dbconn,$q2,array($username,$password));
         if(!($line=pg_fetch_array($result,null,PGSQL_ASSOC))){
-          $a='<h5 style="color:red;"> La password è errata </h5>';
+          $a='<div class="form-row justify-content-center text-center alert alert-danger" style="margin-top:10px;">
+              <h5> La password è errata </h5>
+              </div>';
         }
         else {
           $_SESSION['username']=$_POST['username'];
@@ -32,6 +36,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -61,13 +66,13 @@
             Contenuti Extra
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="carnevale.html">Il Carnevale </a>
+            <a class="dropdown-item" href="carnevale.php">Il Carnevale </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="duomo.html">Il Duomo</a>
+            <a class="dropdown-item" href="duomo.php">Il Duomo</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="fortesangallo.html">Il Forte Sangallo</a>
+            <a class="dropdown-item" href="fortesangallo.php">Il Forte Sangallo</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="ponte.html">Il Ponte Clementino</a>
+            <a class="dropdown-item" href="ponte.php">Il Ponte Clementino</a>
           </div>
         </li>       
       </ul>
@@ -109,10 +114,8 @@
             </div>
             <button type="submit" class="btn btn btn-outline-light">Accedi</button>
           </div>  
-          <a href="#">Password dimenticata?</a>
-          <div class="form-row justify-content-center text-center" style="margin-top:10px;">
+          <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Password dimenticata?</a>
             <?php echo $a ?>
-          </div> 
          </form>
         </div>
       </div>
@@ -123,17 +126,49 @@
   <!--Inizio Footer-->
   <footer class="container-fluid text-center">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
        <h3>Come raggiungerci?</h3>
-       <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
+       <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <h3>Vuoi vedere contenuti extra?</h3>
         <h4>Registrati e accedi!</h4>
+      </div>
+      <div class="col-sm-4">
+       <img class="icon" src="img/logofooter.png">
       </div>
     </div>
   </footer>
   <!--Fine footer-->
+
+  <!--Inizio modal-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Reset password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate>  
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Email usata per la registrazione:</label>
+            <input type="email" id="email" class="form-control" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$" required>
+            <div class="invalid-feedback">
+                Inserire un'email valida.
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Invia</button>
+      </div>
+      </form>  
+    </div>
+  </div>
+</div>
+  <!--fine modal-->
  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script> 

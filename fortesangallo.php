@@ -1,9 +1,16 @@
+<?php
+  session_start();
+  if(!(isset($_SESSION['username']))){
+    header("location:index.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forte Sangallo</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -33,17 +40,18 @@
               Contenuti Extra
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="carnevale.html">Il Carnevale </a>
+              <a class="dropdown-item" href="carnevale.php">Il Carnevale </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="duomo.html">Il Duomo</a>
+              <a class="dropdown-item" href="duomo.php">Il Duomo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="fortesangallo.html">Il Forte Sangallo</a>
+              <a class="dropdown-item" href="fortesangallo.php">Il Forte Sangallo</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="ponte.html">Il Ponte Clementino</a>
+              <a class="dropdown-item" href="ponte.php">Il Ponte Clementino</a>
             </div>
           </li>       
         </ul>
         <ul class="navbar-nav ml-auto">
+          <?php echo '<h5 class="my-3 mr-sm-2" style="color:white;">Benvenuto/a '.$_SESSION['username'].'</h5>'; ?>
           <a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="logout.php">Logout</a>
         </ul>
       </div>
@@ -196,14 +204,17 @@
     <br>
 
     <!--Inizio Footer-->
-    <footer class="container-fluid">
-      <div class="row justify-content-center text-center">
+    <footer class="container-fluid text-center">
+    <div class="row">
+      <div class="col-sm-5 offset-sm-1">
         <h3>Come raggiungerci?</h3>
+        <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
+      </div>  
+      <div class="col-sm-5">
+        <img class="icon" src="img/logofooter.png">
       </div>
-      <div class="row justify-content-center text-center">
-        <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
-      </div>
-    </footer>
+    </div>
+  </footer>
     <!--Fine footer-->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -4,6 +4,11 @@ body,html{
     margin:0;
     padding:0;
 }
+
+.navbar-brand{
+  font-family:;
+}
+
 /*Inizio css pagina index*/
 .imgsfondo{
     background-image: url(img/civita.jpg);
@@ -48,6 +53,9 @@ footer a:hover {
 footer a:active {
   color:white;  
   text-decoration: none;
+}
+.icon{
+  max-width:100px;
 }
 .carousel-inner > .carousel-item {
   min-height: 100vh;
@@ -119,7 +127,7 @@ footer a:active {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   box-sizing: border-box;
-  margin-top:19vh;
+  margin-top:16vh;
   margin-bottom:1vh;
   padding: 20px 30px;
   border-radius: 20px;
@@ -149,7 +157,7 @@ footer a:active {
   width: 100%;
   margin-bottom: 20px;  
 }
-.accedibox input[type="text"], input[type="password"],.registrabox input[type="text"], input[type="password"],input[type="email"]
+.accedibox input[type="text"], .accedibox input[type="password"], .registrabox input[type="email"], .registrabox input[type="text"], .registrabox input[type="password"]
 {
   border: none;
   border-bottom: 1px solid #fff;
@@ -160,14 +168,14 @@ footer a:active {
   font-size: 16px;
 }
 .accedibox a,.registrabox a{
-    text-decoration: none;
+    
     font-size: 14px;
     color: #fff;
 }
-.accedibox a:hover,.registrabox a:hover
-{
-    color: red;
+.alert{
+  padding: .0rem .0rem;
 }
+
 /*Fine css pagina accedi,registrati*/
 
 /*Css per timeline*/
@@ -348,7 +356,6 @@ footer a:active {
   position: relative;
   height:100%;
   width:100%;
-  
 }
 
 section{
@@ -507,4 +514,35 @@ section{
   font-size: 1.50rem;
   text-align: left;
   }
+
+.miarow .fa {
+  color: #000000;
+  font-size: 25px;
+  line-height: 50px;
+  transition: .5s;
+}
+.miarow .fa:hover {
+  color: #ffffff;
+}
+.miarow a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    transition: 0.5s;
+    transform: translate(0,0px);
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+.miarow a:hover {
+    transform: rotate(0deg) skew(0deg) translate(0, -10px);
+}
+.miarow .face a:hover {
+  background-color: #3b5999;
+}
+.miarow .insta a:hover {
+  background-color: #e4405f;
+}
   /*Fine css pagina dove siamo*/

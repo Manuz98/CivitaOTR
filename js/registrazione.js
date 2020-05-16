@@ -1,7 +1,7 @@
 $(document).ready(function() {
       
-    $('password,cpassword').on('keyup', function () {
-      if ($('password').val() == $('cpassword').val() ) {
+    $('#password,#cpassword').on('keyup', function () {
+      if ($('#password').val() == $('#cpassword').val() ) {
         $('#cpasswordinv').hide();
       } else {
         $('#cpasswordinv').show();

@@ -7,9 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dove siamo</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,7 +31,7 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php#timeline-1">Storia</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="dovesiamo.php">Dove siamo</a>
       </li>         
       <li class="nav-item dropdown">
@@ -37,19 +39,20 @@
           Contenuti Extra
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="carnevale.html">Il Carnevale </a>
+          <a class="dropdown-item" href="carnevale.php">Il Carnevale </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="duomo.html">Il Duomo</a>
+          <a class="dropdown-item" href="duomo.php">Il Duomo</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="fortesangallo.html">Il Forte Sangallo</a>
+          <a class="dropdown-item" href="fortesangallo.php">Il Forte Sangallo</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="ponte.html">Il Ponte Clementino</a>
+          <a class="dropdown-item" href="ponte.php">Il Ponte Clementino</a>
         </div>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <?php 
       if(isset($_SESSION['username'])){
+        echo '<h5 class="my-3 mr-sm-2" style="color:white;">Benvenuto/a '.$_SESSION['username'].'</h5>';
         echo '<a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="logout.php">Logout</a>';
       }
       else{
@@ -73,17 +76,17 @@
       <div class="row">
         <div class="col-sm-2" align="center">
           <button class="btn" data-container="body" data-toggle="popover" data-html="true" data-placement="bottom" data-trigger="focus" title="Raggiungere Civita Castellana in auto"
-          data-content="<pre>Da <b>ROMA:</b><br> GRA Uscita 5 verso <b>Cassia Veientana</b><br> GRA Uscita 6 verso <b>Via Flaminia</b><br>Da <b>VITERBO:</b> <br> <b>SP27</b> verso Civita Castellana <br> <b>SS675</b> uscita Orte, E45 uscita <br>  Magliano Sabina, proseguire<br>  fino a Civita Castellana </pre>" ><section class="s4"><a href="#" class="iconbtn fas fa-car-alt"> </a></section>
+          data-content="<pre>Da <b>ROMA:</b><br> GRA Uscita 5 verso <b>Cassia Veientana</b><br> GRA Uscita 6 verso <b>Via Flaminia</b><br>Da <b>VITERBO:</b> <br> <b>SP27</b> verso Civita Castellana <br> <b>SS675</b> uscita Orte, E45 uscita <br>  Magliano Sabina, proseguire<br>  fino a Civita Castellana </pre>" ><section class="s4"><a class="iconbtn fas fa-car-alt"> </a></section>
           </button>
         </div>
         <div class="col-sm-2" align="center">
           <button class="btn" data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" data-trigger="focus"  title="Raggiungere Civita Castellana in treno" 
-          data-content="<pre>Da <b>ROMA:</b><br><b> Linea RomaNord</b> <br>  Flaminio-Civita Castellana <br> <b>Linea Fiumicino Aeroporto-Orte</b> <br>  Fermata Civita Castellana<br>Da <b>VITERBO:</b><br><b> Linea RomaNord</b> <br>  Viterbo-Civita Castellana </pre>"> <section class="s4"><a href="#" class="iconbtn fas fa-train"> </a></section>
+          data-content="<pre>Da <b>ROMA:</b><br><b> Linea RomaNord</b> <br>  Flaminio-Civita Castellana <br> <b>Linea Fiumicino Aeroporto-Orte</b> <br>  Fermata Civita Castellana<br>Da <b>VITERBO:</b><br><b> Linea RomaNord</b> <br>  Viterbo-Civita Castellana </pre>"> <section class="s4"><a class="iconbtn fas fa-train"> </a></section>
           </button>
         </div>
         <div class="col-sm-2" align="center">
           <button class="btn" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-trigger="focus"  title="Raggiungere Civita Castellana in autobus"
-          data-content="<pre>Da <b>ROMA:</b> <br> Saxa Rubra verso Civita Castellana<br>Da <b>VITERBO:</b><br> Riello verso Civita Castellana</pre>"><section class="s4"><a href="#" class="iconbtn fas fa-bus"> </a></section>
+          data-content="<pre>Da <b>ROMA:</b> <br> Saxa Rubra verso Civita Castellana<br>Da <b>VITERBO:</b><br> Riello verso Civita Castellana</pre>"><section class="s4"><a class="iconbtn fas fa-bus"> </a></section>
           </button>
         </div>
         <div class="col-sm-6 text-center">
@@ -92,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center text-center"><h1 style=" margin-top: 10vh;">Per informazioni sugli sviluppatori scorri in basso</h1></div>
+      <div class="row justify-content-center text-center"><h1 style=" margin-top: 10vh;">Gli sviluppatori</h1></div>
       <div class="row">
         <div class="col-sm-6" align="center">
           <div class="boxx">
@@ -108,6 +111,10 @@
               <pp><b>Studente di Ingegneria Informatica</b></pp><br>
               <pp> @Università di Roma la Sapienza</pp>
             </div>
+          </div>
+          <div class="row justify-content-center text-center miarow" style="margin-top:45px;">
+            <div class="face" style="margin-right:10px;"><a href="https://www.facebook.com/manuel.grossi.37" target="_blank"><i class="fa fa-facebook"></i></a></div>
+            <div class="insta" style="margin-left:10px;"><a href="https://www.instagram.com/grossi_manuel/?hl=it" target="_blank"><i class="fa fa-instagram"></i></a></div> 
           </div>
         </div>
         <div class="col-sm-6" align="center">
@@ -125,30 +132,40 @@
               <pp>@Università di Roma la Sapienza</pp>
             </div>
           </div>
+          <div class="row justify-content-center text-center miarow" style="margin-top:45px;">
+            <div class="face" style="margin-right:10px;"><a href="https://www.facebook.com/marco.cardinali.161" target="_blank"><i class="fa fa-facebook"></i></a></div>
+            <div class="insta" style="margin-left:10px;"><a href="https://www.instagram.com/marcocardinali98/?hl=it" target="_blank"><i class="fa fa-instagram"></i></a></div>
+          </div>
         </div>
       </div>
-      <div class="row"><br><br></div>
-      </div>
-      </div>
+      <br><br>
+    </div>
+  </div>
 
   <!--Inizio Footer-->
   <footer class="container-fluid text-center">
     <div class="row">
     <?php 
         if(isset($_SESSION['username'])){
-          echo '<div class="col-sm-6 offset-sm-3">
-                 <h3>Come raggiungerci?</h3>
-                 <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
-                </div>';
-        }
-        else{
-          echo '<div class="col-sm-6">
-                 <h3>Come raggiungerci?</h3>
-                 <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
+          echo '<div class="col-sm-5 offset-sm-1">
+                  <h3>La storia di Civita Castellana?</h3>
+                  <h4><a href="index.php#timeline-1">Clicca qui</a></h4> 
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-5">
+                  <img class="icon" src="img/logofooter.png">
+                </div>';
+         }
+         else{
+          echo '<div class="col-sm-4">
+                 <h3>La storia di Civita Castellana?</h3>
+                 <h4><a href="index.php#timeline-1">Clicca qui</a></h4> 
+                </div>
+                <div class="col-sm-4">
                  <h3>Vuoi vedere contenuti extra?</h3>
                  <h4>Registrati e accedi!</h4>
+                </div>
+                <div class="col-sm-4">
+                <img class="icon" src="img/logofooter.png">
                 </div>';
         }
       ?>

@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Civita Castellana On The Road</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--Api per la timeline-->
@@ -39,20 +40,20 @@
             Contenuti Extra
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="carnevale.html">Il Carnevale </a>
+            <a class="dropdown-item" href="carnevale.php">Il Carnevale </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="duomo.html">Il Duomo</a>
+            <a class="dropdown-item" href="duomo.php">Il Duomo</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="fortesangallo.html">Il Forte Sangallo</a>
+            <a class="dropdown-item" href="fortesangallo.php">Il Forte Sangallo</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="ponte.html">Il Ponte Clementino</a>
+            <a class="dropdown-item" href="ponte.php">Il Ponte Clementino</a>
           </div>
         </li>       
       </ul>
       <ul class="navbar-nav ml-auto">
         <?php 
           if(isset($_SESSION['username'])){
-            echo '<h5 style="color:white; margin:auto; margin-right:10px;">Benvenuto/a '.$_SESSION['username'].'</h5>';
+            echo '<h5 class="my-3 mr-sm-2" style="color:white;">Benvenuto/a '.$_SESSION['username'].'</h5>';
             echo '<a type="button" class="btn btn btn-outline-light  my-2 mr-sm-2" href="logout.php">Logout</a>';
           }
           else{
@@ -174,19 +175,25 @@
     <div class="row">
       <?php 
         if(isset($_SESSION['username'])){
-          echo '<div class="col-sm-6 offset-sm-3">
-                 <h3>Come raggiungerci?</h3>
-                 <h4>Le info nella pagina "<a href="dovesiamo.html">Dove siamo</a>"</h4> 
-                </div>';
-        }
-        else{
-          echo '<div class="col-sm-6">
+          echo '<div class="col-sm-5 offset-sm-1">
                  <h3>Come raggiungerci?</h3>
                  <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-5">
+                 <img class="icon" src="img/logofooter.png">
+                </div>';
+        }
+        else{
+          echo '<div class="col-sm-4">
+                 <h3>Come raggiungerci?</h3>
+                 <h4>Le info nella pagina "<a href="dovesiamo.php">Dove siamo</a>"</h4> 
+                </div>
+                <div class="col-sm-4">
                  <h3>Vuoi vedere contenuti extra?</h3>
                  <h4>Registrati e accedi!</h4>
+                </div>
+                <div class="col-sm-4">
+                 <img class="icon" src="img/logofooter.png">
                 </div>';
         }
       ?>
