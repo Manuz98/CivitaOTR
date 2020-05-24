@@ -2,7 +2,7 @@
      $dbconn=pg_connect("host=localhost port=5432 dbname=Utenti user=postgres password=1234")
       or die("Impossibile connettersi: " . pg_last_error());
       $a='';
-      if($_SERVER['REQUEST_METHOD']=='POST'){
+      if(isset($_POST['email'])){
           $email=$_POST['email'];
           $q1="select * from utenti where email=$1";
           $result=pg_query_params($dbconn,$q1,array($email));
@@ -27,6 +27,17 @@
            $q2="insert into utenti values($1,$2,$3,$4,$5)";
            $data=pg_query_params($dbconn,$q2,array($email,$nome,$cognome,$username,$password));
            if($data){
+            $to=$email;
+            $subject="Conferma avvenuta iscrizione";
+            $message="<p>Ciao ".$username.". <br> Ti diamo il benvenuto sul nostro sito. 
+                      Inizia il viaggio nella storia di Civita Castellana e scopri
+                      le principali attrazioni che questo paese offre. <br><br>
+                      Le tua credenziali sono:<br>
+                      Username: ".$username."<br>
+                      Password: ".$_POST['password']."<br><br>
+                      Un saluto dagli sviluppatori Marco e Manuel.</p>"; 
+            $headers="Content-type: text/html";  
+            mail($to,$subject,$message,$headers);        
             $a='<div class="form-row justify-content-center text-center alert alert-success">
                 <h5>La registrazione è stata completata<br><a href="login.php" class="alert-link">Clicca qui per accedere</a></h5>
                 </div>';
@@ -41,6 +52,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrazione</title>
     <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
@@ -49,7 +61,7 @@
 
   <!--Inizio Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand mb-0 h1">Civita Castellana On The Road</a>
+    <a class="navbar-brand mb-0 h1">Civita Castellana OTR</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -140,6 +152,10 @@
             <div class="form-group">  
               <p>Password</p>
               <input type="password" id="password" class="dacont" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+              <span class="eye" onclick="myFunction()">
+                <i id="hide1" class="far fa-eye "></i>
+                <i id="hide2" class="far fa-eye-slash"></i>
+              </span>
               <div class="invalid-feedback">
                 Inserire una password con almeno una lettera maiuscola e una minuscola, un numero e contenente min. 8 caratteri.
               </div>
@@ -149,6 +165,10 @@
             <div class="form-group">  
               <p>Conferma password</p>
               <input type="password" id="cpassword" class="dacont" name="cpassword" required>
+              <span class="eye" onclick="myFunction2()">
+                <i id="hide111" class="far fa-eye "></i>
+                <i id="hide222"class="far fa-eye-slash"></i>
+              </span>
               <div id="cpasswordinv" class="invalid-feedback">
                 Le password devono combaciare.
               </div>
@@ -192,5 +212,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/registrazione.js"></script>
+
 </body>
 </html>

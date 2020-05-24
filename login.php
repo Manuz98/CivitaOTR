@@ -3,7 +3,7 @@
       $dbconn=pg_connect("host=localhost port=5432 dbname=Utenti user=postgres password=1234")
       or die("Impossibile connettersi: " . pg_last_error());
       $a='';
-      if($_SERVER['REQUEST_METHOD']=='POST'){
+      if(isset($_POST['username'])){
         $username=$_POST['username'];
         $q1="select * from utenti where username=$1";
         $result=pg_query_params($dbconn,$q1,array($username));
@@ -37,6 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -45,7 +46,7 @@
 
   <!--Inizio Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand mb-0 h1">Civita Castellana On The Road</a>
+    <a class="navbar-brand mb-0 h1">Civita Castellana OTR</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -106,7 +107,11 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <p>Password</p>
-                <input type="password" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+                <input type="password" id="password" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+                <span class="eye" onclick="myFunction()">
+                  <i id="hide11" class="far fa-eye "></i>
+                  <i id="hide22"class="far fa-eye-slash"></i>
+                </span>
                 <div class="invalid-feedback">
                   Inserire una password valida.
                 </div>
@@ -114,7 +119,6 @@
             </div>
             <button type="submit" class="btn btn btn-outline-light">Accedi</button>
           </div>  
-          <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Password dimenticata?</a>
             <?php echo $a ?>
          </form>
         </div>
@@ -140,35 +144,6 @@
     </div>
   </footer>
   <!--Fine footer-->
-
-  <!--Inizio modal-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Reset password</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="needs-validation" novalidate>  
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email usata per la registrazione:</label>
-            <input type="email" id="email" class="form-control" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$" required>
-            <div class="invalid-feedback">
-                Inserire un'email valida.
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Invia</button>
-      </div>
-      </form>  
-    </div>
-  </div>
-</div>
-  <!--fine modal-->
  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script> 
@@ -190,6 +165,25 @@
     });
   }, false);
 })();
-  </script>
+
+
+    function myFunction(){
+      var x=document.getElementById("password");
+      var y=document.getElementById("hide11");
+      var z=document.getElementById("hide22");
+
+      if(x.type==='password'){
+        x.type="text";
+        y.style.display="block";
+        z.style.display="none";
+      }
+      else{
+        x.type="password";
+        y.style.display="none";
+        z.style.display="block";
+      }
+    }
+ </script>
+   
 </body>
 </html>

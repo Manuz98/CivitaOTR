@@ -18,7 +18,7 @@
 
  <!--Inizio Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand mb-0 h1">Civita Castellana On The Road</a>
+  <a class="navbar-brand mb-0 h1">Civita Castellana OTR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -76,17 +76,17 @@
       <div class="row">
         <div class="col-sm-2" align="center">
           <button class="btn" data-container="body" data-toggle="popover" data-html="true" data-placement="bottom" data-trigger="focus" title="Raggiungere Civita Castellana in auto"
-          data-content="<pre>Da <b>ROMA:</b><br> GRA Uscita 5 verso <b>Cassia Veientana</b><br> GRA Uscita 6 verso <b>Via Flaminia</b><br>Da <b>VITERBO:</b> <br> <b>SP27</b> verso Civita Castellana <br> <b>SS675</b> uscita Orte, E45 uscita <br>  Magliano Sabina, proseguire<br>  fino a Civita Castellana </pre>" ><section class="s4"><a class="iconbtn fas fa-car-alt"> </a></section>
+          data-content="<pre>Da <b>ROMA:</b><br> GRA Uscita 5 verso <b>Cassia Veientana</b><br> GRA Uscita 6 verso <b>Via Flaminia</b><br>Da <b>VITERBO:</b> <br> <b>SP27</b> verso Civita Castellana <br> <b>SS675</b> uscita Orte, E45 uscita <br>  Magliano Sabina, proseguire<br>  fino a Civita Castellana </pre>"><section class="s4"><a href="#" class="iconbtn fas fa-car-alt"> </a></section>
           </button>
         </div>
         <div class="col-sm-2" align="center">
           <button class="btn" data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" data-trigger="focus"  title="Raggiungere Civita Castellana in treno" 
-          data-content="<pre>Da <b>ROMA:</b><br><b> Linea RomaNord</b> <br>  Flaminio-Civita Castellana <br> <b>Linea Fiumicino Aeroporto-Orte</b> <br>  Fermata Civita Castellana<br>Da <b>VITERBO:</b><br><b> Linea RomaNord</b> <br>  Viterbo-Civita Castellana </pre>"> <section class="s4"><a class="iconbtn fas fa-train"> </a></section>
+          data-content="<pre>Da <b>ROMA:</b><br><b> Linea RomaNord</b> <br>  Flaminio-Civita Castellana <br> <b>Linea Fiumicino Aeroporto-Orte</b> <br>  Fermata Civita Castellana<br>Da <b>VITERBO:</b><br><b> Linea RomaNord</b> <br>  Viterbo-Civita Castellana </pre>"> <section class="s4"><a href="#" class="iconbtn fas fa-train"> </a></section>
           </button>
         </div>
         <div class="col-sm-2" align="center">
           <button class="btn" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-trigger="focus"  title="Raggiungere Civita Castellana in autobus"
-          data-content="<pre>Da <b>ROMA:</b> <br> Saxa Rubra verso Civita Castellana<br>Da <b>VITERBO:</b><br> Riello verso Civita Castellana</pre>"><section class="s4"><a class="iconbtn fas fa-bus"> </a></section>
+          data-content="<pre>Da <b>ROMA:</b> <br> Saxa Rubra verso Civita Castellana<br>Da <b>VITERBO:</b><br> Riello verso Civita Castellana</pre>"><section class="s4"><a href="#" class="iconbtn fas fa-bus"> </a></section>
           </button>
         </div>
         <div class="col-sm-6 text-center">

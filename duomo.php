@@ -19,7 +19,7 @@
 
   <!--Inizio Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand mb-0 h1">Civita Castellana On The Road</a>
+    <a class="navbar-brand mb-0 h1">Civita Castellana OTR</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -186,6 +186,17 @@
       </div>
 
     </div>
+    <hr>
+    <div align="center">
+      <button type="button" id="btnvideo" class="btn btn-outline-primary">Guarda il video</button>
+      <button type="button" id="closevideo" class="btn btn-outline-danger">Chiudi</button>
+    </div>
+    <br>
+    <div align="center">
+     <video id="video" width="80%" heigth="80%" controls>
+        <source src="video/duomo.mp4" type="video/mp4">
+      </video>
+    </div>
 
   <!--Fine container descrizione-->
   
@@ -207,5 +218,6 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/video.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/png" sizes="16x16" >
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!--Api per la timeline-->
+    <!--Link per la timeline-->
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
   
@@ -19,7 +19,7 @@
 
   <!--Inizio Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand mb-0 h1">Civita Castellana On The Road</a>
+    <a class="navbar-brand mb-0 h1">Civita Castellana OTR</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -214,14 +214,14 @@
   <script>
    $('body').scrollspy({ target: '#navbarSupportedContent' })
 
-   $(".navbar-collapse ul li a[href^='#']").on('click',function(e){
-     target = this.hash;
-     e.preventDefault();
+   $(".navbar-collapse ul li a[href^='#']").on('click',function(e){ /*seleziono tutti i link nella navbar che hanno un # nell'href*/
+     target = this.hash;                          /*prendo l'hashtag all'interno dell'href*/
+     e.preventDefault();                          
 
-     $('html,body').animate({
-       scrollTop : $(this.hash).offset().top
-     }, 600, function(){
-       window.location.hash = target;
+     $('html,body').animate({                     /*metodo per fare l'animazione*/
+       scrollTop : $(this.hash).offset().top      /*posizione a cui voglio far arrivare la pagina*/
+     }, 600, function(){                          /*animazione con durata 600ms*/
+       window.location.hash = target;             /*aggiungo nell'url l'hashtag che ho cliccato*/
      });
     });
 
