@@ -152,7 +152,7 @@
             <div class="form-group">  
               <p>Password</p>
               <input type="password" id="password" class="dacont" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
-              <span class="eye" onclick="myFunction()">
+              <span class="eye" onclick="mostrapassword()">
                 <i id="hide1" class="far fa-eye "></i>
                 <i id="hide2" class="far fa-eye-slash"></i>
               </span>
@@ -165,7 +165,7 @@
             <div class="form-group">  
               <p>Conferma password</p>
               <input type="password" id="cpassword" class="dacont" name="cpassword" required>
-              <span class="eye" onclick="myFunction2()">
+              <span class="eye" onclick="mostrapassword1()">
                 <i id="hide111" class="far fa-eye "></i>
                 <i id="hide222"class="far fa-eye-slash"></i>
               </span>

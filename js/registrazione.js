@@ -36,7 +36,7 @@ $(document).ready(function() {
     });
   });
 
-  function myFunction(){
+  function mostrapassword(){
     var x=document.getElementById("password");
     var y=document.getElementById("hide1");
     var z=document.getElementById("hide2");
@@ -52,7 +52,7 @@ $(document).ready(function() {
     }
 
   }
-  function myFunction2(){
+  function mostrapassword1(){
     var x=document.getElementById("cpassword");
     var y=document.getElementById("hide111");
     var z=document.getElementById("hide222");

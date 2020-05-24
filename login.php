@@ -108,7 +108,7 @@
               <div class="form-group">
                 <p>Password</p>
                 <input type="password" id="password" name="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
-                <span class="eye" onclick="myFunction()">
+                <span class="eye" onclick="mostrapassword()">
                   <i id="hide11" class="far fa-eye "></i>
                   <i id="hide22"class="far fa-eye-slash"></i>
                 </span>
@@ -167,7 +167,7 @@
 })();
 
 
-    function myFunction(){
+    function mostrapassword(){
       var x=document.getElementById("password");
       var y=document.getElementById("hide11");
       var z=document.getElementById("hide22");
