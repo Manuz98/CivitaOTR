@@ -24,13 +24,13 @@ $(document).ready(function() {
       input.addEventListener(('input'), () => {
        
         $("#mioreset").click(function(){
-          input.classList.remove('is-invalid');
+          input.classList.remove('is-invalid'); /*toglie le classi invalide*/
         });
 
         if (input.checkValidity()) {
-          input.classList.remove('is-invalid'); 
+          input.classList.remove('is-invalid'); /*toglie le classe invalide*/
         } else {
-          input.classList.add('is-invalid');
+          input.classList.add('is-invalid');    /*Aggiunge le classi invalide*/
         }
       });
     });
